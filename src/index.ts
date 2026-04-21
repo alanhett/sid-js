@@ -177,23 +177,3 @@ export class Rando {
     return new Date(decoded)
   }
 }
-
-export class Serious {
-  // Track last generated ID to ensure strict monotonicity and no duplicates
-  private static lastId: number | null = null
-
-  static generate(): number {
-    const baseMillis = Date.now()
-    let candidate = baseMillis * 1000 + Math.floor(Math.random() * 1000)
-    const last = this.lastId
-
-    // If candidate is not greater than last, bump to last + 1
-    // This covers same millisecond collisions, clock skew backwards, and random lower values
-    if (last !== null && candidate <= last) {
-      candidate = last + 1
-    }
-
-    this.lastId = candidate
-    return candidate
-  }
-}
