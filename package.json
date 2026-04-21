@@ -1,5 +1,5 @@
 {
-  "name": "@balancer-team/rando",
+  "name": "@nextform/rando",
   "version": "8.1.5",
   "description": "Generate identifiers with Rando.",
   "main": "dist/index.js",
@@ -19,8 +19,8 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },
-  "repository": "github:balancer-team/rando-js",
-  "homepage": "https://www.balancer.team",
+  "repository": "github:nextform/rando-js",
+  "homepage": "https://nextform.app",
   "keywords": [
     "id",
     "uuid",

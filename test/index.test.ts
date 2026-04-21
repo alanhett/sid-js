@@ -21,7 +21,7 @@ test('Rando with custom alphabet', () => {
       .generate()
       .split('')
       .every((char) => 'ab'.includes(char)),
-    true
+    true,
   )
 })
 

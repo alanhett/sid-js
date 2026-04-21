@@ -5,7 +5,7 @@ Rando is a library for generating identifiers. IDs are random and universally un
 ### Install
 
 ```
-npm i @balancer-team/rando
+npm i @nextform/rando
 ```
 
 ### Usage
@@ -13,7 +13,7 @@ npm i @balancer-team/rando
 Import the rando class and create an instance. The instance generates IDs with the `generate()` method.
 
 ```js
-import { Rando } from '@balancer-team/rando'
+import { Rando } from '@nextform/rando'
 
 const rando = new Rando()
 rando.generate() // => "Jb46bM8xM3mhDLnpQrwNvN"
@@ -102,7 +102,7 @@ const rando = new Rando({ sortable: true })
 Rando comes with a few presets to make it easy to generate IDs for common use cases.
 
 ```js
-import { rando, sorto, locker, sesame, pinto } from '@balancer-team/rando/presets'
+import { rando, sorto, locker, sesame, pinto } from '@nextform/rando/presets'
 
 rando.generate() //=> "7kFD8XHYp1JdXXzYsxRvXT"
 sorto.generate() //=> "13DNYDsRBvc6TQ2HwHh1GW"
@@ -119,7 +119,18 @@ pinto.generate() //=> "368230"
 - `sesame` Secure 16-character password
 - `pinto` Numerical 6-digit pin for verification codes
 
-### Guidance for Sortable IDs
+### Serious IDs
+
+Serious IDs are numeric rather than string-based. They can be used in contexts where numeric IDs are required, such as database primary keys. They are under 53 bits of entropy, which is the maximum safe integer size in JavaScript and work well as 64-bit integers in databases.
+
+Serious IDs can be generated safely though the year 2255. They are sortable and monotonic, so they can be used as primary keys in distributed databases without risk of collisions or duplicates, even if multiple IDs are generated in the same millisecond, assuming only one instance of Serious is generating IDs.
+
+```js
+import { Serious } from '@nextform/rando'
+Serious.generate() //=> 1776801003243546
+```
+
+### Appendix: Guidance for Sortable IDs
 
 The following table is a guide for the length needed to support at least the year 3000 with a given alphabet base.
 
