@@ -1,6 +1,6 @@
 {
   "name": "@nextform/rando",
-  "version": "8.1.6",
+  "version": "8.1.7",
   "description": "Generate identifiers with Rando.",
   "main": "dist/index.js",
   "exports": {
